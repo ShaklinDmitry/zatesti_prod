@@ -12,13 +12,11 @@ class StatementNotificationController extends Controller
 {
     /**
      * Отослать высказывание клиенту(отправляется то которое по списку идет)
-     *
-     * @return void
+     * @param StatementNotificationService $statementNotificationService
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function sendStatementNotification(){
-        $statementNotificationService = new StatementNotificationService();
-        $result = $statementNotificationService->sendStatementNotification();
-
-        return $result;
+    public function sendStatementNotification(StatementNotificationService $statementNotificationService){
+        $notificationSendResut = $statementNotificationService->sendStatementNotification();
+        return $notificationSendResut;
     }
 }
